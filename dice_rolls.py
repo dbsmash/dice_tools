@@ -44,7 +44,7 @@ def run_simulation(args):
 	'''
 
 	success = 0.0
-	for i in xrange(1,args.iterations):
+	for i in xrange(args.iterations):
 		result = roll_dice(args.dice, args.low, args.high)
 		if args.attack + result >= args.defense:
 			success = success + 1
