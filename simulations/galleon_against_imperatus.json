@@ -14,14 +14,7 @@
 					"name": "left cannon battery",
 					"attack":5,
 					"power":13,
-					"quantity": "d3",
-					"charge": false
-				},
-				{
-					"name": "right cannon battery",
-					"attack":5,
-					"power":13,
-					"quantity": "d3",
+					"quantity": "2d3",
 					"charge": false
 				},
 				{
