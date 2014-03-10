@@ -15,6 +15,12 @@ def test_roll_dice():
 		total = ds.roll_dice(2)
 		assert(total >= 2 and total <= 12)
 
+	total = ds.roll_dice(2, 1, 1)
+	assert(total == 0)
+
+	total = ds.roll_dice(15, 14, 0)
+	assert(total > 0 and total <= 6)
+
 def test_floored_percentage():
 	print 'testing floored_percentage'
 	fp = ds.floored_percentage(.6578787878, 1)
