@@ -1,0 +1,51 @@
+{
+	"iterations":10000,
+	"hit_dice": 2,
+	"low_hit_dice_drop": 0,
+	"high_hit_dice_drop": 0,
+	"damage_dice": 2,
+	"low_damage_dice_drop": 0,
+	"high_damage_dice_drop": 0,
+	"attackers": [
+		{
+			"name": "Galleon",
+			"attacks": [
+				{
+					"name": "left cannon battery",
+					"attack":5,
+					"power":13,
+					"quantity": "2d3",
+					"charge": false
+				},
+				{
+					"name": "harpoon ranged",
+					"attack":5,
+					"power":15,
+					"quantity": 1,
+					"charge": false
+				},
+				{
+					"name": "harboon melee",
+					"attack":6,
+					"power":21,
+					"quantity": 4,
+					"charge": false
+				}
+			]
+		}
+	],
+	"targets": [
+		{
+			"name":"Imperatus",
+			"defense":13,
+			"armor":18,
+			"wounds":38
+		},
+		{
+			"name":"Imperatus Respawned",
+			"defense":13,
+			"armor":18,
+			"wounds":17
+		}
+	]
+}

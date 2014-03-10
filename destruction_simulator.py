@@ -46,17 +46,16 @@ def roll_dice(rolls, drop_low_num=0, drop_high_num=0):
 
 	return sum(results)
 
-def get_total_damage_from_attack(weapon, sim_data):
-	dice = sim_data['damage_dice']
-
-	if weapon['charge']:
+def get_total_damage_from_attack(dice, power, charge, drop_low, drop_high):
+	'''
+	Calculates total damage from an attack given the provided parameters
+	'''
+	if charge:
 		dice += 1
 
-	damage_roll = roll_dice(dice, 
-							sim_data['low_damage_dice_drop'], 
-							sim_data['high_damage_dice_drop'])
+	damage_roll = roll_dice(dice, drop_low, drop_high)
 	
-	return weapon['power'] + damage_roll
+	return power + damage_roll
 
 def get_quantity(quantity):
 	'''
@@ -68,6 +67,13 @@ def get_quantity(quantity):
 		if quantity.startswith('d'):
 			actual_quantity = random.randrange(1, int(quantity[1:]) + 1)
 			return actual_quantity
+		else:
+			params = quantity.split('d')
+			if len(params) == 2:
+				actual_quantity = 0
+				for i in xrange(1, int(params[0]) + 1):
+					actual_quantity += random.randrange(1, int(params[1]) + 1)
+				return actual_quantity
 	return quantity
 
 def run_iteration(sim_data):
@@ -93,11 +99,15 @@ def run_iteration(sim_data):
 				if weapon['attack'] + attack_roll < target['defense']:
 					continue
 
-				damage = get_total_damage_from_attack(weapon, sim_data)
+				damage = get_total_damage_from_attack(sim_data['damage_dice'], 
+													  weapon['power'], 
+													  weapon['charge'], 
+													  sim_data['low_damage_dice_drop'], 
+													  sim_data['high_damage_dice_drop'])
 
 				if damage <= target['armor']:
 					continue
-				# print target['name'] + ' took damage: '+str((damage - target['armor'])) + ' from ' + weapon['name']
+				
 				target['damage_taken'] += (damage - target['armor'])
 
 				if target['damage_taken'] >= target['wounds']:
