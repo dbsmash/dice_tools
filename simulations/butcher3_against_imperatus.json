@@ -1,0 +1,42 @@
+{
+	"iterations":10000,
+	"hit_dice": 2,
+	"low_hit_dice_drop": 0,
+	"high_hit_dice_drop": 0,
+	"damage_dice": 3,
+	"low_damage_dice_drop": 0,
+	"high_damage_dice_drop": 0,
+	"attackers": [
+		{
+			"name": "Butcher3",
+			"attacks": [
+				{
+					"attack":9,
+					"power":16,
+					"quantity": 1,
+					"charge": true
+				},
+				{
+					"attack":9,
+					"power":16,
+					"quantity": 13,
+					"charge": false
+				}
+			]
+		}
+	],
+	"targets": [
+		{
+			"name":"Imperatus",
+			"defense":13,
+			"armor":18,
+			"wounds":38
+		},
+		{
+			"name":"Imperatus Respawned",
+			"defense":13,
+			"armor":18,
+			"wounds":17
+		}
+	]
+}
