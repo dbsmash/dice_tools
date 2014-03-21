@@ -3,11 +3,13 @@ import random
 import time
 import json
 from math import floor
+from collections import defaultdict
 
 random.seed(time.time())
 
 SIDES = 6
 
+damage_map = defaultdict(int)
 
 def floored_percentage(val, digits):
 	'''
@@ -122,8 +124,12 @@ def run_simulation(sim_data):
 	for i in xrange(sim_data['iterations']):
 		if run_iteration(sim_data):
 			success += 1
+		for target in sim_data['targets']:
+			damage_map[target['name']] += target['damage_taken']
 
 	print 'You would suceed ' + floored_percentage(success / sim_data['iterations'], 1) +' percent of the time.'
+	for target in sim_data['targets']:
+		print 'Average damage for ' + target['name'] + ' was: ' + str(damage_map[target['name']]/sim_data['iterations'])
 
 def setup_args():
 	'''
