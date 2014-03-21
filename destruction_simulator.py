@@ -46,12 +46,10 @@ def roll_dice(rolls, drop_low_num=0, drop_high_num=0):
 
 	return sum(results)
 
-def get_total_damage_from_attack(dice, power, charge, drop_low, drop_high):
+def get_total_damage_from_attack(dice, power, drop_low, drop_high):
 	'''
 	Calculates total damage from an attack given the provided parameters
 	'''
-	if charge:
-		dice += 1
 
 	damage_roll = roll_dice(dice, drop_low, drop_high)
 	
@@ -92,22 +90,20 @@ def run_iteration(sim_data):
 	for attacker in attackers:
 		for weapon in attacker['attacks']:
 			for swing in xrange(1, get_quantity(weapon['quantity']) + 1):
-				attack_roll = roll_dice(sim_data['hit_dice'], 
-										sim_data['low_hit_dice_drop'], 
-										sim_data['high_hit_dice_drop'])
+				attack_roll = roll_dice(attacker['hit_dice'], 
+										attacker['low_hit_dice_drop'], 
+										attacker['high_hit_dice_drop'])
 
 				if weapon['attack'] + attack_roll < target['defense']:
 					continue
 
-				damage = get_total_damage_from_attack(sim_data['damage_dice'], 
+				damage = get_total_damage_from_attack(weapon['damage_dice'], 
 													  weapon['power'], 
-													  weapon['charge'], 
-													  sim_data['low_damage_dice_drop'], 
-													  sim_data['high_damage_dice_drop'])
+													  attacker['low_damage_dice_drop'], 
+													  attacker['high_damage_dice_drop'])
 
 				if damage <= target['armor']:
 					continue
-				
 				target['damage_taken'] += (damage - target['armor'])
 
 				if target['damage_taken'] >= target['wounds']:

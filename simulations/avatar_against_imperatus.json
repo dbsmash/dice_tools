@@ -1,32 +1,31 @@
 {
 	"iterations":10000,
-	"hit_dice": 2,
-	"low_hit_dice_drop": 0,
-	"high_hit_dice_drop": 0,
-	"damage_dice": 2,
-	"low_damage_dice_drop": 0,
-	"high_damage_dice_drop": 0,
 	"attackers": [
 		{
 			"name": "Avatar of Menoth",
+			"hit_dice": 2,
+			"low_hit_dice_drop": 0,
+			"high_hit_dice_drop": 0,
+			"low_damage_dice_drop": 0,
+			"high_damage_dice_drop": 0,
 			"attacks": [
 				{
 					"attack":10,
 					"power":21,
 					"quantity": 1,
-					"charge": true
+					"damage_dice": 3
 				},
 				{
 					"attack":10,
 					"power":16,
 					"quantity": 1,
-					"charge": false
+					"damage_dice": 2
 				},
 				{
 					"attack":10,
 					"power":21,
 					"quantity": 3,
-					"charge": false
+					"damage_dice": 2
 				}
 
 			]
@@ -38,7 +37,7 @@
 			"name":"Imperatus",
 			"defense":13,
 			"armor":18,
-			"wounds":38
+			"wounds":34
 		},
 		{
 			"name":"Imperatus Respawned",
