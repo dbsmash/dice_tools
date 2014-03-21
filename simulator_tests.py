@@ -40,11 +40,11 @@ def test_floored_percentage():
 def test_get_total_damage_from_attack():
 	print 'testing get_total_damage_from_attack'
 	for i in xrange(1,100):
-		total = ds.get_total_damage_from_attack(2, 10, False, 0, 0)
+		total = ds.get_total_damage_from_attack(2, 10, 0, 0)
 		assert(total >= 12 and total <= 22)
 
 	for i in xrange(1,100):
-		total = ds.get_total_damage_from_attack(2, 10, True, 0, 0)
+		total = ds.get_total_damage_from_attack(3, 10, 0, 0)
 		assert(total >= 13 and total <= 28)
 
 test_get_quantity()
