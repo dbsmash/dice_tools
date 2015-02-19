@@ -1,0 +1,31 @@
+{
+	"iterations":10000,
+	"attackers": [
+		{
+			"name": "MHSF",
+			"hit_dice": 3,
+			"low_hit_dice_drop": 1,
+			"high_hit_dice_drop": 0,
+			"low_damage_dice_drop": 1,
+			"high_damage_dice_drop": 0,
+			"attacks": [
+				{
+					"attack":6,
+					"power":10,
+					"quantity": 11,
+					"damage_dice": 3
+				}
+
+			]
+			
+		}
+	],
+	"targets": [
+		{
+			"name":"Lucant",
+			"defense":14,
+			"armor":17,
+			"wounds":21
+		}
+	]
+}

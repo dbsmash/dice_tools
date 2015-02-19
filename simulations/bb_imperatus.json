@@ -1,0 +1,49 @@
+{
+	"iterations":10000,
+	"attackers": [
+		{
+			"name": "Bronzeback",
+			"hit_dice": 2,
+			"low_hit_dice_drop": 0,
+			"high_hit_dice_drop": 0,
+			"low_damage_dice_drop": 0,
+			"high_damage_dice_drop": 0,
+			"attacks": [
+				{
+					"attack":7,
+					"power":20,
+					"quantity": 1,
+					"damage_dice": 3
+				},
+				{
+					"attack":7,
+					"power":20,
+					"quantity": 6,
+					"damage_dice": 2
+				},
+				{
+					"attack":7,
+					"power":19,
+					"quantity": 1,
+					"damage_dice": 2
+				}
+
+			]
+			
+		}
+	],
+	"targets": [
+		{
+			"name":"Imperatus",
+			"defense":13,
+			"armor":18,
+			"wounds":38
+		},
+		{
+			"name":"Imperatus Respawned",
+			"defense":13,
+			"armor":18,
+			"wounds":17
+		}
+	]
+}
